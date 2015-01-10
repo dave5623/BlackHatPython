@@ -22,6 +22,7 @@ def udp_sender(subnet, magic_message):
 
     for ip in IPNetwork(subnet):
         try:
+            # send UDP packet to high port number that is most likely to be closed
             sender.sendto(magic_message, ("%s" % ip, 65212))
         except:
             pass
